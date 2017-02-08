@@ -1,0 +1,29 @@
+{
+  "name": "evl",
+  "version": "1.0.0",
+  "description": "Function fallback when error.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gluons/EVL.git"
+  },
+  "keywords": [
+    "evl",
+    "error",
+    "function",
+    "fallback"
+  ],
+  "author": "Saran Tanpituckpong <sarunta@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gluons/EVL/issues"
+  },
+  "homepage": "https://github.com/gluons/EVL#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-gluons": "^1.0.4"
+  }
+}
