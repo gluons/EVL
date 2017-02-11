@@ -49,9 +49,9 @@ let b = evl(err, two); // b is 2
  * With same arguments
  */
 // To call add(1, 2) or multiply(1, 2)
-let c = evl(add, multiply)(1, 2); // c is 3 (1 + 2 from add function)
+let c = evl(add, multiply, false)(1, 2); // c is 3 (1 + 2 from add function)
 // To call err(1, 2) or multiply(1, 2)
-let d = evl(err, multiply)(1, 2); // d is 2 (1 * 2 from multiply function)
+let d = evl(err, multiply, false)(1, 2); // d is 2 (1 * 2 from multiply function)
 
 /*
  * With different arguments
@@ -75,12 +75,12 @@ evl(err, 'I am fallback value.') // -> 'I am fallback value.'
 
 ## API
 
-### evl(mainFunction, fallbackFunction, [callNow])
+### evl(mainFunction, fallbackFunction, [noArguments])
 
 #### mainFunction
 Type: `Function`
 
-A main function that you expect it to work.
+A **main function** that you expect it to work.
 
 > If you pass **non-function** value to this parameter, `evl` will return it back.
   Because it can't be called. So it can't throw an error.
@@ -88,11 +88,11 @@ A main function that you expect it to work.
 #### fallbackFunction
 Type: `Function`
 
-A fallback function that will work when main function throw an error.
+A **fallback function** that will work when **main function** throw an error.
 
-> If you pass **non-function** value to this parameter, `evl` will return that value back when main function not work.
+> If you pass **non-function** value to this parameter, `evl` will return that value back when **main function** not work.
 
-#### callNow
+#### noArguments
 Type: `Boolean`  
 Default: `true`
 

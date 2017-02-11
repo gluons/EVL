@@ -1,6 +1,6 @@
 'use strict';
 
-function evl(mainFunction, fallbackFunction, callNow = true) {
+function evl(mainFunction, fallbackFunction, noArguments = true) {
 	if (typeof mainFunction !== 'function') {
 		let mainValue = mainFunction;
 		mainFunction = () => mainValue;
@@ -10,7 +10,7 @@ function evl(mainFunction, fallbackFunction, callNow = true) {
 		fallbackFunction = () => fallbackValue;
 	}
 
-	if (callNow) {
+	if (noArguments) {
 		try {
 			return mainFunction();
 		} catch (e) {
