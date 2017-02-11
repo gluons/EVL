@@ -17,7 +17,7 @@ function evl(mainFunction, fallbackFunction, callNow = true) {
 			return fallbackFunction();
 		}
 	} else {
-		return function () {
+		return function invoke() {
 			if ((arguments.length == 2) && Array.isArray(arguments[0]) && Array.isArray(arguments[1])) {
 				try {
 					return mainFunction.apply(this, arguments[0]);
