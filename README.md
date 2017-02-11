@@ -14,7 +14,7 @@
 
 **Via [NPM](https://www.npmjs.com/):**
 
-[![NPM](https://nodei.co/npm/nvl.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/evl)
+[![NPM](https://nodei.co/npm/evl.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/evl)
 
 ```
 npm install evl
