@@ -4,7 +4,7 @@
   "description": "Function fallback when error.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,10 @@
   "bugs": {
     "url": "https://github.com/gluons/EVL/issues"
   },
-  "homepage": "https://github.com/gluons/EVL#readme",
+  "homepage": "https://github.com/gluons/EVL",
   "devDependencies": {
     "eslint": "^3.15.0",
-    "eslint-config-gluons": "^1.0.4"
+    "eslint-config-gluons": "^1.0.4",
+    "mocha": "*"
   }
 }
