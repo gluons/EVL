@@ -103,19 +103,22 @@ If `false`, `evl` will return the `invoke` function.
 
 ### Invoke Function
 
-- #### invoke([args...])
+- #### invoke([args...])  
   Return: `Any`
 
   Call **main function** or **fallback function** with all `arguments` from `invoke` function and return the value back.
 
-- #### invoke(args)
+- #### invoke(mainFuncArgs, fallbackFuncArgs)  
   Return: `Any`
 
   Call **main function** or **fallback function** with its own arguments and return the value back.
 
-  ##### args
+  ##### mainFuncArgs  
   Type: `Array`
 
-  The arguments for **main function** and **fallback function**.
-  - First element of `args` is the arguments of **main function**.
-  - Second element of `args` is the arguments of **fallback function**.
+  The arguments of **main function**.
+
+  #### fallbackFuncArgs  
+  Type: `Array`
+
+  The arguments of **fallback function**

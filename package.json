@@ -1,6 +1,6 @@
 {
   "name": "evl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function fallback when error.",
   "main": "index.js",
   "scripts": {
