@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/gluons/EVL",
   "devDependencies": {
+    "@types/node": "8",
     "eslint": "^3.15.0",
     "eslint-config-gluons": "^1.0.4",
     "mocha": "*",
