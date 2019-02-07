@@ -1,0 +1,9 @@
+{
+	"extends": "tslint-config-gluons",
+	"compilerOptions": {
+		"outDir": "dist"
+	},
+	"include": [
+		"src"
+	]
+}
