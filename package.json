@@ -26,6 +26,7 @@
     "eslint": "^3.15.0",
     "eslint-config-gluons": "^1.0.4",
     "mocha": "*",
+    "rimraf": "^2.6.3",
     "tsconfig-gluons": "^1.0.1",
     "tslint": "^5.12.1",
     "tslint-config-gluons": "^2.1.0",
