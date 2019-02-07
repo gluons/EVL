@@ -1,5 +1,5 @@
 {
-	"extends": "tslint-config-gluons",
+	"extends": "tsconfig-gluons",
 	"compilerOptions": {
 		"outDir": "dist"
 	},
