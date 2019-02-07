@@ -25,6 +25,10 @@
   "devDependencies": {
     "eslint": "^3.15.0",
     "eslint-config-gluons": "^1.0.4",
-    "mocha": "*"
+    "mocha": "*",
+    "tsconfig-gluons": "^1.0.1",
+    "tslint": "^5.12.1",
+    "tslint-config-gluons": "^2.1.0",
+    "typescript": "^3.3.1"
   }
 }
