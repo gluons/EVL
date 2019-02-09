@@ -39,7 +39,7 @@ const add = (a, b) => a + b;
 const multiply = (a, b) => a * b;
 
 /*
- * Simple usage
+ * No arguments
  */
 const a = evl(one, two)(); // a is 1
 const b = evl(err, two)(); // b is 2
@@ -69,7 +69,7 @@ evl(err, 'I am fallback value.') // -> 'I am fallback value.'
 
 ### `evl(mainFunction, fallbackFunction)`
 
-Create an invoke function that will return the value from either of given functions.
+Create an [invoke function](#invokemainfuncargs-fallbackfuncargs---invoke-function) that will return the value from either of given functions.
 
 #### mainFunction
 Type: `Function`
