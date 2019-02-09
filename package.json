@@ -4,6 +4,8 @@
   "description": "Function fallback when error.",
   "main": "index.js",
   "scripts": {
+    "prebuild": "rimraf dist/",
+    "build": "tsc",
     "test": "mocha"
   },
   "repository": {
