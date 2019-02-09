@@ -3,8 +3,7 @@
 [![npm](https://img.shields.io/npm/v/evl.svg?style=flat-square)](https://www.npmjs.com/package/evl)
 [![npm](https://img.shields.io/npm/dt/evl.svg?style=flat-square)](https://www.npmjs.com/package/evl)
 [![Travis](https://img.shields.io/travis/gluons/EVL.svg?style=flat-square)](https://travis-ci.org/gluons/EVL)
-[![Dependency Status](https://dependencyci.com/github/gluons/EVL/badge?style=flat-square)](https://dependencyci.com/github/gluons/EVL)
-[![ESLint Gluons](https://img.shields.io/badge/code%20style-gluons-9C27B0.svg?style=flat-square)](https://github.com/gluons/eslint-config-gluons)
+[![TSLint](https://img.shields.io/badge/TSLint-gluons-15757B.svg?style=flat-square)](https://github.com/gluons/tslint-config-gluons)
 
 😈 Function fallback when error.
 
@@ -12,7 +11,7 @@
 
 ## Installation
 
-**Via [NPM](https://www.npmjs.com/):**
+**Via [npm](https://www.npmjs.com/):**
 
 [![NPM](https://nodei.co/npm/evl.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/evl)
 
@@ -31,42 +30,35 @@ yarn add evl
 ```javascript
 const evl = require('evl');
 
-let err = () => {
+const err = () => {
 	throw new Error('An error. 😱');
 };
-let one = () => 1;
-let two = () => 2;
-let add = (a, b) => a + b;
-let multiply = (a, b) => a * b;
+const one = () => 1;
+const two = () => 2;
+const add = (a, b) => a + b;
+const multiply = (a, b) => a * b;
 
 /*
  * Simple usage
  */
-let a = evl(one, two); // a is 1
-let b = evl(err, two); // b is 2
+const a = evl(one, two)(); // a is 1
+const b = evl(err, two)(); // b is 2
 
 /*
- * With same arguments
- */
-// To call add(1, 2) or multiply(1, 2)
-let c = evl(add, multiply, false)(1, 2); // c is 3 (1 + 2 from add function)
-// To call err(1, 2) or multiply(1, 2)
-let d = evl(err, multiply, false)(1, 2); // d is 2 (1 * 2 from multiply function)
-
-/*
- * With different arguments
+ * With arguments
  */
 // To call add(1, 2) or multiply(3, 4)
-let e = evl(add, multiply, false)([1, 2], [3, 4]); // e is 3 (1 + 2 from add function)
+const c = evl(add, multiply)([1, 2], [3, 4]); // c is 3 (1 + 2 from add function)
 // To call err(1, 2) or multiply(3, 4)
-let f = evl(err, multiply, false)([1, 2], [3, 4]); // f is 12 (3 * 4 from multiply function)
+const d = evl(err, multiply)([1, 2], [3, 4]); // d is 12 (3 * 4 from multiply function)
 ```
 
-You can also pass **non-function** as argument.
+You can also pass **non-function**.
 
 ```javascript
 const evl = require('evl');
-let err = () => {
+
+const err = () => {
 	throw new Error('An error. 💩');
 };
 
@@ -75,50 +67,40 @@ evl(err, 'I am fallback value.') // -> 'I am fallback value.'
 
 ## API
 
-### evl(mainFunction, fallbackFunction, [noArguments])
+### `evl(mainFunction, fallbackFunction)`
+
+Create an invoke function that will return the value from either of given functions.
 
 #### mainFunction
 Type: `Function`
 
 A **main function** that you expect it to work.
 
-> If you pass **non-function** value to this parameter, `evl` will return it back.
-  Because it can't be called. So it can't throw an error.
+> If you pass **non-function** value to this parameter, `evl` will return it back from **invoke** function.
 
 #### fallbackFunction
 Type: `Function`
 
 A **fallback function** that will work when **main function** throw an error.
 
-> If you pass **non-function** value to this parameter, `evl` will return that value back when **main function** not work.
-
-#### noArguments
-Type: `Boolean`  
-Default: `true`
-
-If `true`, `evl` will call the **main function** or **fallback function** and return the value back instantly.  
-If `false`, `evl` will return the `invoke` function.
+> If you pass **non-function** value to this parameter, `evl` will return it back from **invoke** function when **main function** not work.
 
 ---
 
-### Invoke Function
+### `invoke(mainFuncArgs, fallbackFuncArgs)` - Invoke Function
 
-- #### invoke([args...])  
-  Return: `Any`
+Return a value of either of given functions with given arguments.
 
-  Call **main function** or **fallback function** with all `arguments` from `invoke` function and return the value back.
+> If both `mainFunction` and `fallbackFunction` have error, `invoke` will return `null`.
 
-- #### invoke(mainFuncArgs, fallbackFuncArgs)  
-  Return: `Any`
+#### mainFuncArgs
+Type: `Array`  
+Default: `[]`
 
-  Call **main function** or **fallback function** with its own arguments and return the value back.
+Arguments of `evl`'s `mainFunction`.
 
-  ##### mainFuncArgs  
-  Type: `Array`
+#### fallbackFuncArgs
+Type: `Array`  
+Default: `[]`
 
-  The arguments of **main function**.
-
-  #### fallbackFuncArgs  
-  Type: `Array`
-
-  The arguments of **fallback function**
+Arguments of `evl`'s `fallbackFunction`.
