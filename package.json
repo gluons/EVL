@@ -2,7 +2,11 @@
   "name": "evl",
   "version": "1.0.1",
   "description": "Function fallback when error.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prebuild": "rimraf dist/",
     "build": "tsc",
